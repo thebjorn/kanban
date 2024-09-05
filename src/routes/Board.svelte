@@ -30,7 +30,7 @@
     onconsider={handleDndConsiderColumns}
     onfinalize={handleDndFinalizeColumns}>
     {#each columns as { id, name, items }, idx (id)}
-        <div class="column" animate:flip={{ duration: flipDurationMs }}>
+        <div class="bg-green-100 border-gray-400 border" animate:flip={{ duration: flipDurationMs }}>
             <Column
                 {name}
                 {items}
@@ -47,15 +47,8 @@
         width: 100%;
         padding: 0.5em;
         margin-bottom: 40px;
-    }
-    .column {
-        height: 100%;
-        width: 250px;
-        padding: 0;
-        margin: 1em;
-        float: left;
-        border: 1px solid #333333;
-        background-color: white;
-        color: black;
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     }
 </style>
