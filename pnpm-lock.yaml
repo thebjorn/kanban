@@ -9,25 +9,28 @@ importers:
   .:
     devDependencies:
       '@sveltejs/adapter-auto':
-        specifier: ^3.0.0
+        specifier: ^3.2.4
         version: 3.2.4(@sveltejs/kit@2.5.26(@sveltejs/vite-plugin-svelte@4.0.0-next.7(svelte@5.0.0-next.244)(vite@5.4.3))(svelte@5.0.0-next.244)(vite@5.4.3))
       '@sveltejs/kit':
-        specifier: ^2.0.0
+        specifier: ^2.5.26
         version: 2.5.26(@sveltejs/vite-plugin-svelte@4.0.0-next.7(svelte@5.0.0-next.244)(vite@5.4.3))(svelte@5.0.0-next.244)(vite@5.4.3)
       '@sveltejs/vite-plugin-svelte':
-        specifier: ^4.0.0-next.6
+        specifier: 4.0.0-next.7
         version: 4.0.0-next.7(svelte@5.0.0-next.244)(vite@5.4.3)
       svelte:
-        specifier: ^5.0.0-next.1
+        specifier: 5.0.0-next.244
         version: 5.0.0-next.244
       svelte-check:
-        specifier: ^4.0.0
+        specifier: ^4.0.1
         version: 4.0.1(svelte@5.0.0-next.244)(typescript@5.5.4)
+      svelte-dnd-action:
+        specifier: ^0.9.50
+        version: 0.9.50(svelte@5.0.0-next.244)
       typescript:
-        specifier: ^5.0.0
+        specifier: ^5.5.4
         version: 5.5.4
       vite:
-        specifier: ^5.0.3
+        specifier: ^5.4.3
         version: 5.4.3
 
 packages:
@@ -500,6 +503,11 @@ packages:
       svelte: ^4.0.0 || ^5.0.0-next.0
       typescript: '>=5.0.0'
 
+  svelte-dnd-action@0.9.50:
+    resolution: {integrity: sha512-EnUyBmiMjflGr+NKfPmPpyareKEbQkdVGRTv6YyBHIEXPOv92XHgPHubErQ1tOaXaZ2c7y4Gja85uA1/Desw/Q==}
+    peerDependencies:
+      svelte: '>=3.23.0 || ^5.0.0-next.0'
+
   svelte@5.0.0-next.244:
     resolution: {integrity: sha512-whSOcKdpuAFd5xD9J2EhuHeRs4J4nHis6NSUKRXpC3HQoCmsoKhyIldMjiv6QFkQpe6QMsid8lwvgLXkZTSC/A==}
     engines: {node: '>=18'}
@@ -948,6 +956,10 @@ snapshots:
       typescript: 5.5.4
     transitivePeerDependencies:
       - picomatch
+
+  svelte-dnd-action@0.9.50(svelte@5.0.0-next.244):
+    dependencies:
+      svelte: 5.0.0-next.244
 
   svelte@5.0.0-next.244:
     dependencies:
