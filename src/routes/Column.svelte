@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
     import { flip } from 'svelte/animate'
     import { dndzone, TRIGGERS } from 'svelte-dnd-action'
     import Card from './Card.svelte'
@@ -6,16 +6,23 @@
 
     const flipDurationMs = 150
 
-    /** @type {{name: any, items: any, onFolderDragStart: any, onDrop: any, isDraggingFolder: any}} */
+    type Props = {
+        name: string
+        tasks: Task[]
+        onFolderDragStart: () => void
+        onDrop: (newItems: Task[]) => void
+        isDraggingFolder: boolean
+    }
+
     let {
         name,
         items = $bindable(),
         onFolderDragStart,
         onDrop,
         isDraggingFolder = $bindable(),
-    } = $props()
+    }: Props = $props()
 
-    function handleDndConsiderCards(e) {
+    function handleDndConsiderCards(e: CustomEvent) {
         const {
             items: newItems,
             info: { id, trigger },
@@ -24,7 +31,7 @@
         console.warn('got consider', name)
 
         if (trigger == TRIGGERS.DRAG_STARTED) {
-            const itemIdx = items.findIndex(item => item.id === id)
+            const itemIdx = items.findIndex((item: Item) => item.id === id)
             console.log('index', itemIdx)
             if (!!items[itemIdx].items) {
                 onFolderDragStart()
@@ -33,7 +40,7 @@
         items = newItems
     }
 
-    function handleDndFinalizeCards(e) {
+    function handleDndFinalizeCards(e: CustomEvent) {
         isDraggingFolder = false
         onDrop(e.detail.items)
     }
@@ -51,7 +58,7 @@
         onfinalize={handleDndFinalizeCards}>
         {#each items as item (item.id)}
             <div animate:flip={{ duration: flipDurationMs }}>
-                {#if item.items != null}
+                {#if item?.items != null}
                     <Folder
                         folder={item}
                         dropFromOthersDisabled={isDraggingFolder} />

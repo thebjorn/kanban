@@ -1,10 +1,9 @@
-import { writable } from "svelte/store";
 
-export const data = writable([
+export const data: Board = $state([
 	{
 		id: "c1",
 		name: "TODO",
-		items: [
+		tasks: [
 			{ id: 1, name: "item41" },
 			{ id: 2, name: "item42" },
 			{ id: 3, name: "item43" },
@@ -19,30 +18,29 @@ export const data = writable([
 	{
 		id: "c2",
 		name: "DOING",
-		items: [
+		tasks: [
 			{ id: 10, name: "item50" },
 			{ id: 11, name: "item51" },
 			{
 				id: 17,
 				name: "folder62",
-				items: []
+				tasks: []
 			}
 		]
 	},
 	{
 		id: "c3",
 		name: "DONE",
-		items: [
+		tasks: [
 			{ id: 13, name: "item52" },
 			{
 				id: 14,
 				name: "folder61",
-				items: [
+				tasks: [
 					{ id: 15, name: "item62" },
 					{ id: 16, name: "item63" }
 				]
 			}
 		]
 	}
-]
-);
+]);

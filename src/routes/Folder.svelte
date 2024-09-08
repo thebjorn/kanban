@@ -3,7 +3,7 @@
 
     import { flip } from 'svelte/animate'
     import { dndzone, TRIGGERS } from 'svelte-dnd-action'
-    import { data } from './data'
+    import { data } from './data.svelte.ts'
     import Card from './Card.svelte'
 
     const flipDurationMs = 150
@@ -62,7 +62,7 @@
     <div>
         {folder.name}
     </div>
-	
+
     <div
         class="drop-zone"
         use:dndzone={{

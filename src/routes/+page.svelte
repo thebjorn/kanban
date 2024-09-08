@@ -1,5 +1,5 @@
 <script>
-    import { data } from './data'
+    import { data } from './data.svelte'
     import Board from './Board.svelte'
 
     function handleBoardUpdated(newColumnsData) {
